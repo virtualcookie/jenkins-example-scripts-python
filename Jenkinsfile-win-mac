@@ -11,7 +11,7 @@ pipeline {
             }
             steps {
                 checkout scm
-                bat 'python3 --version'
+                bat 'python --version'
             }
         }
         stage('Checkout on Mac') {
