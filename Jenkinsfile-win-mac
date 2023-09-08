@@ -1,0 +1,29 @@
+/* groovylint-disable-next-line CompileStatic */
+pipeline {
+    agent none
+    environment {
+        PYTHON_VERSION = '3.8.5'
+    }
+    stages {
+        stage('Checkout on Windows') {
+            agent {
+                label 'windows'
+            }
+            steps {
+                checkout scm
+                sh 'python3 --version'
+            }
+        }
+    }
+    stages {
+        stage('Checkout on Mac') {
+            agent {
+                label 'macos'
+            }
+            steps {
+                checkout scm
+                bat 'python3 --version'
+            }
+        }
+    }
+}
