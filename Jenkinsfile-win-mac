@@ -14,8 +14,6 @@ pipeline {
                 sh 'python3 --version'
             }
         }
-    }
-    stages {
         stage('Checkout on Mac') {
             agent {
                 label 'macos'
